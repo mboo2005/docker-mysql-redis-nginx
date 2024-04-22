@@ -1,0 +1,34 @@
+version: "3.8"
+services:
+
+  nginx:
+    image: nginx
+    restart: always
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+      - ./data/www:/usr/share/nginx/html
+    ports:
+      - "80:80"
+      - "8080:8080"
+
+  mysql:
+    image: mysql:latest
+    restart: always
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=a1@a0,Gw3uUL
+      - TZ=Asia/Shanghai
+ 
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - ./data/redis:/data
+    environment:
+      - REDIS_PASSWORD=xIkx5Fwj1JVC
+    command: redis-server --appendonly yes
