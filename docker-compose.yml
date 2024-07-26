@@ -9,7 +9,6 @@ services:
       - ./data/www:/usr/share/nginx/html
     ports:
       - "80:80"
-      - "8080:8080"
 
   mysql:
     image: mysql:latest
@@ -19,7 +18,7 @@ services:
     volumes:
       - ./data/mysql:/var/lib/mysql
     environment:
-      - MYSQL_ROOT_PASSWORD=a1@a0,Gw3uUL
+      - MYSQL_ROOT_PASSWORD=123456
       - TZ=Asia/Shanghai
  
   redis:
